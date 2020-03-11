@@ -1,5 +1,8 @@
 import React from 'react';
 import Header from '../Component/Header';
+import Buacador from '../Component/Buacador';
+import CardList from '../Component/CardList';
+
 class Home extends React.Component{
 
     state={
@@ -8,7 +11,15 @@ class Home extends React.Component{
 
     render(){
         return(
-            <h1> <Header message={this.state.message}/> </h1>
+            <div className="">
+                <Header />
+                <div className="content">
+                    <Buacador />
+                </div>
+                <div className="card-body">
+                    <CardList />
+                </div>
+            </div>
         );
     }
 
