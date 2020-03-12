@@ -2,10 +2,19 @@ import React from 'react';
 
 class CardList extends React.Component{
     render() {
-        return(
-            <p className="">
-                hi! i'm a list
-            </p>
+ /*        if (this.props.character.length === 0 ) {
+            return(
+                <div>
+                    <h3>No badges found</h3>
+                </div>
+            )
+        } */
+
+        return (
+
+            <div>
+                hey i'm a list
+            </div>
         );
     }
 }
