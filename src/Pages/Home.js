@@ -10,7 +10,7 @@ class Home extends React.Component{
 
     state={
         message: `Hi! i'm a message`,
-        loading: false,
+        loading: true,
         error: null,
         data: {
             results: []
@@ -27,19 +27,31 @@ class Home extends React.Component{
         try {
             const GetCharactersAPI = await fetch('https://rickandmortyapi.com/api/character');
             const data = await GetCharactersAPI.json();
-            this.setState({ loading: false, data: data });
+            this.setState({ loading: true, data: data });
         } catch (error) {
-            this.setState({ loading: false, error: error });
+            this.setState({ loading: true, error: error });
         }
     }
 
     render(){
         
         if (this.state.loading) {
-            return <PageLoading />
+            return(
+                <div className="">
+                    <Header />
+                    <div className="row justify-content-center">
+                        <div className="col-6">
+                            <Buacador />
+                        </div>
+                    </div>
+                    <div className="row justify-content-center">
+                    <   PageLoading />
+                    </div>
+                </div>
+            ) 
         }
         if (this.state.error) {
-            return <PageError />
+            return <PageError error={this.state.error}/>
         }
 
         return(
@@ -52,13 +64,13 @@ class Home extends React.Component{
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-6">
-                        <div className="card-body">
+                        <ul className="row">
                             {this.state.data.results.map(character => (
-                                <div>{character.name}</div>
-                            )
-                            )}
-                            <CardList />
-                        </div>
+                                <il className="">
+                                    <CardList character={ character } />
+                                </il>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>
