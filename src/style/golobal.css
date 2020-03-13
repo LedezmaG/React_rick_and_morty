@@ -1,0 +1,14 @@
+body {
+    font-family: 'Coming Soon', cursive;
+}
+
+.box{
+    background-color: whitesmoke;
+    align-content: center;
+    padding: 5%;
+    margin: 5%;
+}
+
+.flex{
+    display: flex;
+}

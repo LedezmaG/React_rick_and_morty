@@ -1,4 +1,5 @@
 import React from 'react';
+import '../style/golobal.css'
 import Header from '../Component/Header';
 import Buacador from '../Component/Buacador';
 import CardList from '../Component/CardList';
@@ -9,8 +10,7 @@ import PageError from '../Component/PageError';
 class Home extends React.Component{
 
     state={
-        message: `Hi! i'm a message`,
-        loading: true,
+        loading: false,
         error: null,
         data: {
             results: []
@@ -27,9 +27,9 @@ class Home extends React.Component{
         try {
             const GetCharactersAPI = await fetch('https://rickandmortyapi.com/api/character');
             const data = await GetCharactersAPI.json();
-            this.setState({ loading: true, data: data });
+            this.setState({ loading: false, data: data });
         } catch (error) {
-            this.setState({ loading: true, error: error });
+            this.setState({ loading: false, error: error });
         }
     }
 
@@ -64,13 +64,12 @@ class Home extends React.Component{
                 </div>
                 <div className="row justify-content-center">
                     <div className="col-6">
-                        <ul className="row">
+                        <div className="row">
                             {this.state.data.results.map(character => (
-                                <il className="">
-                                    <CardList character={ character } />
-                                </il>
+                                <CardList character={ character } />
                             ))}
-                        </ul>
+                            <button className="btn-lg btn-block" > Loading More</button>
+                        </div>
                     </div>
                 </div>
             </div>
